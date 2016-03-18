@@ -113,7 +113,14 @@
 						o negativo da imagem original na região correspondente. </br>					
 						A solução do problema é mostrada a seguir:</br>
 						<br>
-						<img src="recursos/ex1/ex1.png">
+						<img src="recursos/ex1/ex1.png"><br>
+						Download do código: <a href="recursos/ex1/regions.cpp">regions.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile e a imagem em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make regions<br>
+						$ ./regions nome_da_imagem.png<br>
 						<p>Antes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois:</p>
@@ -121,31 +128,148 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<img src="recursos/ex1/resp-ex1.png">						
 					</p>
-					<p>
+					<p align="justify">
 						Na segunda parte do exercício, é solicitado que implemente um algoritmo que troque as regiões de uma imagem como se
 						fosse um quebra-cabeça, pediu-se ainda que nesse algoritmo fosse ultilizado alguns construtores da classe Mat. O algoritmo
 						desenvolvido é mostrado a seguir:
 						<br>
 						<br>
-						<img src="recursos/ex2/ex2.png">
+						<img src="recursos/ex2/ex2.png"><br>
+						Download do código: <a href="recursos/ex2/trocaregioes.cpp">trocaregioes.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile e a imagem em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make trocaregioes<br>
+						$ ./trocaregioes nome_da_imagem.png<br>
 						<p>Antes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois:</p>
 						<img src="recursos/biel.png">
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<img src="recursos/ex2/resp-ex2.png">
+					</p>                
+                </div>
+				<div class="post-preview">
+					<h2>
+						Preenchendo regiões
+					</h2>
+					<p align="justify">
+						No programa <a href="recursos/ex3/labeling.cpp">labeling.cpp</a> que é fornecido, percebe-se que ele preenche os objetos 
+						com tons de cinza diferentes, porém os tons de cinza variam de 0 à 255, causando um problema quando tiver mais de 256 
+						elementos no imagem, a primeira parte do exercício pede para achar uma solução para este problema. A solução encontrada 
+						é passar o módulo da quantidade de elementos na função floodFill, nesse caso quando chegar em 256 elementos ele ira resetar
+						o valor e nunca irá passar de 255 na tom fornecido para preencimento dos elementos. <br>
+						A parte do código que será diferente do labeling.cpp está apresentado a seguir:
+						<br>
+						<br>						
+						<img src="recursos/ex3/resp-ex3.png"><br>
+					</p>
+					<p align="justify">
+						Na segunda parte do exercício, é solicitado que implemente um algoritmo para contar o números de elementos com e sem buracos de
+						uma imagem, que possui apenas duas cores: preto(plano de fundo) e branco(elemento). Assumindo que elementos com mais 
+						de um buraco podem existir e ainda pediu para desconsiderar os elementos que tocam a borda da imagem.<br>
+						<br>
+						Primeiro passo é remover os elementos quem tocam as bordas da imagem, para isso é necessário aplicar uma margem de 1 pixel 
+						de cor branca, e depois aplicar o floodFill no primeiro pixel da imagem. Este procedimento irá preencher toda a margem e os 
+						elementos, que a tocam, de preto.<br>
+						<br>
+						Após remover os elementos das bordas, aplica-se novamente o floodFill no primeiro pixel para o tom de cinza 1, para diferenciar
+						o plano de fundo dos buracos(que continuaram com tom de cinza 0). Depois disso, percorre-se a imagem, procurando-se por tons de
+						cinza igual a 255, e aplicando-se o floodFill para preencher todos os elementos com o tom de cinza 200(sem buracos), guardando em
+						uma variável a quantidade total de elementos. <br>
+						<br>
+						O ultimo passo é encontrar os elementos com buracos, e como todos estão marcados como sem buracos, deve-se percorrer a imagem
+						e a cada iteração guardar o pixel anterior, e quando encontrar um pixel preto(buraco) aplicar o floodFill no pixel anterior para
+						para pintar o elemento com tom de cinza 100(com buraco), e adicionando em uma variável de quantidade de elementos com buraco sempre
+						que isso ocorrer. No final para saber o número de elementos sem buraco e só subtrair o total de elementos dos que possuem buraco.<br>
+						<br>
+						O algoritmo modificado é mostrado a seguir: 
+						<br>
+						<br>
+						<img src="recursos/ex4/resp-ex4-1.png" width="570px"><br>
+						<img src="recursos/ex4/resp-ex4-2.png" width="570px"><br>
+						<img src="recursos/ex4/resp-ex4-3.png" width="570px"><br>
+						<img src="recursos/ex4/resp-ex4-4.png" width="570px"><br>
+						<img src="recursos/ex4/resp-ex4-5.png" width="570px"><br>
+						Download do código: <a href="recursos/ex4/labeling_modificado.cpp">labeling_modificado.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile e a imagem em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make labeling_modificado<br>
+						$ ./labeling_modificado nome_da_imagem.png<br>
+						<p>Antes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois:</p>
+						<img src="recursos/bolhas.png">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex4/labeling.png"><br>
+						<p>
+						Console: Quantidade de elementos sem bolhas: 12 <br>
+					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								Quantidade de elementos com bolhas: 9
+						</p>
 					</p>
                 </div>
-                <hr>
-                <div class="post-preview">
+				<div class="post-preview">
 					<h2>
-						Man must explore, and this is exploration at its greatest
+						Manipulação de histogramas
 					</h2>
-					<p>
-						Problems look mighty small from 150 miles up
-					</p>   
-				</div>
-                <hr>
+					<p align="justify">
+						No primeiro exercício deste tópico, pede-se para desenvolver um programa que realize a equalização, que é o processo
+						de espalhamento do histograma de uma imagem, o que gera um aumento no contraste e uma melhor distribuição do nível de 
+						intensidade(brilho) das cores do que na imagem original.<br>						
+						<br>						
+						O código fornecido (<a href="recursos/ex5/histogram.cpp">histograma</a>) foi desenvolvido para captura de vídeo, 
+						mas para demonstração usaremos uma imagem para
+						mostrar o efeito da equalização, porém o código de solução do exercício serve para vídeo como o original.<br>
+						O código da solução é mostrado a seguir:<br>
+						<img src="recursos/ex5/resp-ex5-1.png" width="607px"><br>
+						<img src="recursos/ex5/resp-ex5-2.png" width="607px"><br>
+						<img src="recursos/ex5/resp-ex5-3.png" width="607px"><br>
+						<img src="recursos/ex5/resp-ex5-4.png" width="607px"><br>
+						Download do código: <a href="recursos/ex5/equalize.cpp">equalize.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make equalize<br>
+						$ ./equalize<br>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Imagem:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Histograma:</p>
+						Original:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex5/img_original.png"><img src="recursos/ex5/hist_original.png">
+						Equalizada:
+						<img src="recursos/ex5/img_equalizada.png"><img src="recursos/ex5/hist_equalizado.png" width="374px">		
+					</p>
+					<p align="justify">
+						Na segunda parte do exercício, é solicitado que implemente um algoritmo que deverá continuamente calcular o histograma da imagem 
+						e compará-lo com o último histograma calculado. Quando a diferença entre estes ultrapassar um limiar pré-estabelecido, deverá ser
+						mostrar um alarme(pintar de vermelho aonde houver movimento) ao usuário.
+						O algoritmo desenvolvido é mostrado a seguir:<br>
+						<br>
+						<img src="recursos/ex6/resp-ex6-1.png" width="722px"><br>
+						<img src="recursos/ex6/resp-ex6-2.png" width="722px"><br>
+						<img src="recursos/ex6/resp-ex6-3.png" width="722px"><br>
+						<img src="recursos/ex6/resp-ex6-4.png" width="722px"><br>
+						Download do código: <a href="recursos/ex6/motiondetector.cpp">motiondetector.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make motiondetector<br>
+						$ ./motiondetector<br>
+						<p>Antes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois:</p>
+						<img src="recursos/biel.png">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex2/resp-ex2.png">
+					</p>                
+                </div>
             </div>
         </div>
     </div>

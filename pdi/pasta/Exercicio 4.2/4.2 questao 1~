@@ -1,2 +1,0 @@
-para solucionar este problema é necessario utilizar um vetor de 3 elementos e esses elementos podendo variar de 0 até 255(Vec3b). Desta forma
-teria condicoes de contar mais de 16 milhões de objetos todos com cores diferentes e lembrando de não usar a cor branca(255,255,255) pra não fazer conflito com a cor dos objetos antes de serem lidos.
