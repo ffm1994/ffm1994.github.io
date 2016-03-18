@@ -262,13 +262,57 @@
 						a seguinte seqüência de comandos no terminal:<br>
 						$ make motiondetector<br>
 						$ ./motiondetector<br>
-						<p>Antes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<p>Sem movimento: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois:</p>
-						<img src="recursos/biel.png">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<img src="recursos/ex2/resp-ex2.png">
+						Com movimento:</p>
+						<img src="recursos/ex6/sem_mov.png">
+						<img src="recursos/ex6/com_mov.png">
 					</p>                
+                </div>
+				<div class="post-preview">
+					<h2>
+						Filtragem no domínio espacial
+					</h2>
+					<p align="justify">
+						Neste tópico, o exercício pede para modificar o código fornecido <a href="recursos/ex7/filtroespacial.cpp">filtroespacial</a> para
+						que seja adicionado uma nova funcionalidade, que é o filtro laplaciano do gaussiano. Para isso foi usado a seguinte matriz como filtro:<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex7/mask.png"><br>
+						<br>
+						Neste caso as unicas modificações necessárias no código original são:<br>
+						- Adicionar uma nova matriz para o filtro laplaciano do gaussiano.<br>
+						- Adicionar um novo "case" no código para aplicar a nova matriz.<br>
+						<br>
+						Essas alterações são mostradas a seguir:<br>
+						<br>
+						<img src="recursos/ex7/matriz.png"> <img src="recursos/ex7/case.png" height="111px"><br>
+						Download do código modificado: <a href="recursos/ex7/laplgauss.cpp">laplgauss.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make laplgauss<br>
+						$ ./laplgauss<br>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Imagem original:</p>						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;<img src="recursos/ex7/original.png" width="570px" height="480px"><br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Imagem com Laplaciano:(Clicando H)</p>						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;<img src="recursos/ex7/lapl.png" width="570px" height="480px"><br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						Imagem com Laplaciano do Gaussiano(Clicando Z):</p>						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;<img src="recursos/ex7/laplgauss.png" width="570px" height="480px"><br>							
+					</p>					
                 </div>
             </div>
         </div>
